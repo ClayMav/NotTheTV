@@ -25,7 +25,7 @@ module.exports = {
       `http://${host}:${port}`
   },
   head: {
-    title: "tt1",
+    title: "Thats Not The TV",
     meta: [
       { charset: "utf-8" },
       {
@@ -44,6 +44,10 @@ module.exports = {
         rel: "icon",
         type: "image/x-icon",
         href: "/favicon.ico"
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=Nunito+Sans:400,700"
       }
     ]
   },

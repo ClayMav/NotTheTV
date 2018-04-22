@@ -1,9 +1,7 @@
 <template>
   <section>
-    <h1 class="header">Nuxt TypeScript Starter</h1>
-    <div class="cards">
-      <Card v-for="person in people" :key="person.id" :person="person"></Card>
-    </div>
+    <Header/>
+      <Channel v-for="channel in channels" :key="channel.name" :channel="channel"></Channel>
   </section>
 </template>
 
@@ -13,25 +11,18 @@ import {
   Vue
 } from "nuxt-property-decorator"
 import { State } from "vuex-class"
-import Card from "~/components/Card.vue"
+import Channel from "~/components/Channel.vue"
+import Header from "~/components/Header.vue"
 
 @Component({
   components: {
-    Card
+    Channel,
+    Header
   }
 })
 export default class extends Vue {
-  @State people
+  @State channels
 }
 </script>
 <style scoped>
-.header {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana,
-    sans-serif;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-}
 </style>

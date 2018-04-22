@@ -1,0 +1,29 @@
+[
+  {
+    "id": 0,
+    "name": "Gaming",
+    "authors": [
+      "UCb_sF2m3-2azOqeNEdMwQPw",
+      "UCWqr2tH3dPshNhPjV5h1xRw"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Athletics",
+    "authors": [
+      "UCAL3JXZSzSm8AlZyD3nQdBA"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Politics",
+    "authors": [
+      "UCGaVdbSav8xWuFWTadK6loA"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Movies",
+    "authors": []
+  }
+]
