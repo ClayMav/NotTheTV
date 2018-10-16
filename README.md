@@ -1,22 +1,33 @@
-# unplugthecord
+# That's Not The Television
 
 > Nuxt.js TypeScript project
+
+## Before Running
+
+Make sure to add a [Youtube Data API](https://developers.google.com/youtube/v3/getting-started) key before running.
+
+The `static/api_key.json` file should be structured as
+```json
+{
+  "key": "API KEY HERE"
+}
+```
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+$ yarn # or npm install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn dev # or npm run dev
 
 # build for production and launch server
-$ npm run build
-$ npm start
+$ yarn build # or npm run build
+$ yarn start # or npm run start
 
 # generate static project
-$ npm run generate
+$ yarn generate # or npm run generate
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
