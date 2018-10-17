@@ -29,9 +29,14 @@ export default class Channel extends Vue {
 }
 .channel ul {
   display: flex;
-  overflow-x: scroll;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   height: 350px;
-  padding: 0;
+  padding: 30px;
   margin: 0;
+}
+.channel ul::-webkit-scrollbar {
+    display: none;
 }
 </style>
