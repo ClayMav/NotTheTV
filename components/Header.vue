@@ -3,7 +3,7 @@
     <svg style="width:80px;height:80px" viewBox="0 0 24 24">
     <path fill="#999999" d="M21,17H3V5H21M21,3H3A2,2 0 0,0 1,5V17A2,2 0 0,0 3,19H8V21H16V19H21A2,2 0 0,0 23,17V5A2,2 0 0,0 21,3Z" />
 </svg>
-    <h1>That's Not TV</h1>
+    <h1>Not The TV</h1>
   </header>
 </template>
 <script lang="ts">

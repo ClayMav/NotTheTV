@@ -18,7 +18,7 @@ export const actions = {
     var channelList = [
         {
           id: 0,
-          name: 'Gaming',
+          name: 'Games',
           authors: [
             'UCb_sF2m3-2azOqeNEdMwQPw',
             'UCWqr2tH3dPshNhPjV5h1xRw'
@@ -40,7 +40,7 @@ export const actions = {
         },
         {
           id: 3,
-          name: 'Movies',
+          name: 'Film',
           authors: []
         }
     ]
