@@ -1,9 +1,7 @@
 <template>
   <a :href="'https://youtube.com/watch?v=' + video.id.videoId" class="channel__video">
     <div class="iframe-holder">
-    <no-ssr>
       <iframe id="ytplayer" type="text/html" :src="'https://www.youtube.com/embed/' + video.id.videoId + '?color=white&iv_load_policy=3&rel=0&showinfo=0&showsearch=0'" allowfullscreen="" frameborder="0"></iframe>
-    </no-ssr>
     </div>
     <h3>{{ video.snippet.title }}</h3>
   </a>

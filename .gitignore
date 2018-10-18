@@ -1,3 +1,4 @@
+.env
 api_key.json
 # dependencies
 node_modules

@@ -27,6 +27,10 @@ export default class Channel extends Vue {
 .channel {
   padding: 0 0 0 40px;
 }
+.channel h2 {
+  font-size: 1.8em;
+  margin-bottom: 0;
+}
 .channel ul {
   display: flex;
   flex-wrap: nowrap;
