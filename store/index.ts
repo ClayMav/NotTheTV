@@ -8,20 +8,41 @@ export const mutations = {
   }
 }
 
+function putIn(arr, items) {
+  var placed = false;
+  for (var thing of items) {
+    placed = false;
+    var tdate = new Date(thing.snippet.publishedAt);
+    for (var i = 0; i < arr.length; i++) {
+      var date = new Date(arr[i].snippet.publishedAt);
+      if (date < tdate) {
+        arr.splice(i, 0, thing);
+        placed = true;
+        break;
+      }
+    }
+    if (!placed)
+      arr.push(thing);
+  }
+}
+
 export const actions = {
   async nuxtServerInit({ commit }, { app }) {
-    /*
-    var channelList = await app.$axios.$get(
-      "./channels.json"
-    )
-     */
     var channelList = [
         {
           id: 0,
           name: 'Games',
           authors: [
-            'UCb_sF2m3-2azOqeNEdMwQPw',
-            'UCWqr2tH3dPshNhPjV5h1xRw'
+            'UCb_sF2m3-2azOqeNEdMwQPw', //Matthewmatosis
+            'UCWqr2tH3dPshNhPjV5h1xRw', //Superbunnyhop
+            'UC5CYeHPLer3lbEhgonvbbAA', //Noah-Caldwell Gervais
+            'UCm4JnxTxtvItQecKUc4zRhQ', //Errant Signal
+            'UCtUbO6rBht0daVIOGML3c8w', //Summoning Salt
+            'UCJtSWV6KYyIckRpM5h20J_g', //Ahoy
+            'UCPlWv88ZRMxCcK3BGjrX7ew', //Writing on Games
+            'UCyhnYIvIKK_--PiJXCMKxQQ', //Joseph Anderson
+            'UCqJ-Xo29CKyLTjn6z2XwYAw', //Mark Brown
+            'UCvaUR_-uJQcu1-c4UfUtEmQ' //Games as Literature
           ]
         },
         {
@@ -41,7 +62,9 @@ export const actions = {
         {
           id: 3,
           name: 'Film',
-          authors: []
+          authors: [
+            'UCyNtlmLB73-7gtlBz00XOQQ' //Folding Ideas
+          ]
         }
     ]
 
@@ -51,13 +74,20 @@ export const actions = {
     for (var category of channelList) {
       var videos = []
       for (var author of category.authors) {
-        await app.$axios.$get("https://www.googleapis.com/youtube/v3/search?key="+ apiKey +"&channelId=" + author + "&part=snippet,id&order=date&maxResults=3")
-          .then((resp) => {
-            videos.push.apply(videos, resp.items)
+        await app.$axios.$get("https://www.googleapis.com/youtube/v3/channels?id=" + author + "&key=" + apiKey + "&part=contentDetails")
+          .then(async (resp) => {
+            var uploadPlaylist = resp.items[0].contentDetails.relatedPlaylists.uploads;
+            await app.$axios.$get("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=" + uploadPlaylist + "&key=" + apiKey + "&part=snippet&order=date&maxResults=4")
+              .then((resp) => {
+                putIn(videos, resp.items);
+              })
+              .catch(() => {
+                console.log("404: Is your API key set up?")
+              });
           })
           .catch(() => {
             console.log("404: Is your API key set up?")
-          })
+          });
       }
       channels.push({name: category.name, recent: videos})
     }

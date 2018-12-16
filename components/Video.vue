@@ -1,9 +1,12 @@
 <template>
   <a :href="'https://youtube.com/watch?v=' + video.id.videoId" class="channel__video">
     <div class="iframe-holder">
-      <iframe id="ytplayer" type="text/html" :src="'https://www.youtube.com/embed/' + video.id.videoId + '?color=white&iv_load_policy=3&rel=0&showinfo=0&showsearch=0'" allowfullscreen="" frameborder="0"></iframe>
+      <!--<iframe id="ytplayer" type="text/html" :src="'https://www.youtube.com/embed/' + video.id.videoId + '?color=white&iv_load_policy=3&rel=0&showinfo=0&showsearch=0'" allowfullscreen="" frameborder="0"></iframe>-->
+      <img :src="video.snippet.thumbnails.high.url">
     </div>
-    <h3>{{ video.snippet.title }}</h3>
+    <div class="title-holder">
+      <h3>{{ video.snippet.title }}</h3>
+    </div>
   </a>
 </template>
 <script lang="ts">
@@ -35,8 +38,13 @@ export default class Video extends Vue {
 }
 .iframe-holder {
   width: 384px;
-  height: 216px;
+  height: 214px;
+  overflow-y: hidden;
   border-radius: 20px 20px 0 0 ;
+}
+.iframe-holder img {
+  width: 100%;
+  margin-top: -37px;
 }
 .channel__video iframe {
   width: 384px;
@@ -48,13 +56,20 @@ export default class Video extends Vue {
   height: 216px;
   border-radius: 20px 20px 0 0 ;
 }
-.channel__video h3 {
+
+.channel__video .title-holder {
+  height: 65px;
+  line-height: 65px;
   text-align: center;
+  padding: 0 35px;
+}
+
+.channel__video h3 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 25px;
+  height: 50px;
+  overflow-x: hidden;
   margin: 0;
-  line-height: 58px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0 25px;
 }
 </style>
