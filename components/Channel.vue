@@ -2,7 +2,7 @@
   <div class="channel">
     <h2>{{ channel.name }}</h2>
     <ul>
-      <Video v-for="video in channel.recent" :key="video.id.videoId" :video="video"></Video>
+      <Video v-for="video in channel.videos" :key="video.id" :video="video"></Video>
     </ul>
   </div>
 </template>

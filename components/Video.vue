@@ -1,5 +1,5 @@
 <template>
-  <a :href="'https://youtube.com/watch?v=' + video.id.videoId" class="channel__video">
+  <a :href="'https://youtube.com/watch?v=' + video.id" class="channel__video">
     <div class="iframe-holder">
       <!--<iframe id="ytplayer" type="text/html" :src="'https://www.youtube.com/embed/' + video.id.videoId + '?color=white&iv_load_policy=3&rel=0&showinfo=0&showsearch=0'" allowfullscreen="" frameborder="0"></iframe>-->
       <img :src="video.snippet.thumbnails.high.url">
@@ -68,7 +68,7 @@ export default class Video extends Vue {
   display: inline-block;
   vertical-align: middle;
   line-height: 25px;
-  height: 50px;
+  max-height: 50px;
   overflow-x: hidden;
   margin: 0;
 }
